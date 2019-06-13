@@ -41,3 +41,17 @@ print('Total: $' + str(net_total))
 print(f'Average Change: $ {mean_change:.2f}')
 print('Greatest Increase in Profits: ' + largest_increase['Date'] + ' (' + str(largest_increase['Change']) + ')')
 print('Greatest Decrease in Profits: ' + largest_decrease['Date'] + ' (' + str(largest_decrease['Change']) + ')')
+
+
+# Export results to text file
+line1 = ('Financial Analysis')
+line2 = ('----------------------------')
+line3 = ('Total Months:', total_months)
+line4 = ('Total: $' + str(net_total))
+line5 = (f'Average Change: $ {mean_change:.2f}')
+line6 = ('Greatest Increase in Profits: ' + largest_increase['Date'] + ' (' + str(largest_increase['Change']) + ')')
+line7 = ('Greatest Decrease in Profits: ' + largest_decrease['Date'] + ' (' + str(largest_decrease['Change']) + ')')
+
+
+with open('bank_results.txt','w') as out:
+    out.write('{}\n{}\n{}\n{}\n{}\n{}\n{}\n'.format(line1,line2,line3,line4,line5,line6,line7))

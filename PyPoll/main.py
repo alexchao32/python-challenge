@@ -33,7 +33,7 @@ for i in candidate_list:
         winner = i # Store the winner's name
     
     
-# print th eresults
+# print the results
 print('Election Results')
 print('-------------------------')
 print(f'Total votes: {total_votes}')
@@ -46,3 +46,26 @@ for j in range(0, len(candidate_list)):
 print('-------------------------')
 print('Winner:', winner)
 
+
+
+# Export results to text file
+
+
+line1 = ('Election Results')
+line2 = ('-------------------------')
+line3 = (f'Total votes: {total_votes}')
+line4 = ('-------------------------')
+
+result_list = []
+for j in range(0, len(candidate_list)):
+    #print(f'{candidate_list[j]}: {percent_list[j]:.3f} ({vote_list[j]})')
+    result_list.append(f'{candidate_list[j]}: {percent_list[j]:.3f}% ({vote_list[j]})')
+    
+line5 = ('-------------------------')
+line6 = ('Winner:', winner)
+
+
+
+with open('poll_results.txt','w') as out:
+    out.write('{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n'.format(line1,line2,line3,line4,result_list[0],result_list[1],
+              result_list[2],result_list[3],line5,line6))
